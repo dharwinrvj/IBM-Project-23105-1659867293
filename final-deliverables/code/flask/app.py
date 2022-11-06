@@ -19,13 +19,17 @@ def y_predict():
     url = request.form['url']
     check_predic = inputScript.main(url)
     predic = model.predict(check_predic)
-    # print(predic)
 
-    result = predic[0]
-    if(result==1):
+    # print(check_predic)
+    # print (predic)
+    # result = predic[0]
+    
+    if(predic==-1):
         pred = "You are safe!! This is a Legimate Website :)"
+    elif(predic==1):
+        pred = "You are in a phishing site. Dont Trust :("
     else:
-        pred = "You are in a wrong site. Be Cautious :("
+        pred = "You are in a suspecious site. Be Cautious ;("
 
     return render_template("index.html", pred_text = '{}'.format(pred), url = url)
 
