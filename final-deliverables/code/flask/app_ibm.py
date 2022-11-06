@@ -17,7 +17,7 @@ header = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + mltok
 
 app = Flask(__name__)
 
-# model = pickle.load(open("/home/ana/ana/web-phishing-detection/phishing_website.pkl","rb"))
+# model = pickle.load(open("../phishing_website.pkl","rb"))
 
 # user-inputs the URL in this page
 @app.route('/')
@@ -34,7 +34,7 @@ def y_predict():
     response_scoring = requests.post(os.getenv('DEPLOYMENT_LINK'), json=payload_scoring,headers={'Authorization': 'Bearer ' + mltoken})
 
 
-    # model = joblib.load('/home/ana/ana/web-phishing-detection/phishing_website.pkl')
+    # model = joblib.load('../phishing_website.pkl')
     # predic = model.predict(check_predic)
 
     predic = response_scoring.json()
