@@ -6,7 +6,7 @@ import inputScript   #inputScript file - to analyze the URL
 
 app = Flask(__name__)
 
-model = pickle.load(open("../phishing_website.pkl","rb"))
+model = pickle.load(open("./phishing_website.pkl","rb"))
 
 # user-inputs the URL in this page
 @app.route('/')
